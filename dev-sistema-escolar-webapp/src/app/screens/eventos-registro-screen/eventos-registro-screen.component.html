@@ -103,7 +103,7 @@
 
         <mat-form-field class="mat-input" appearance="outline">
             <mat-label>Cupo maximo</mat-label>
-            <input matInput [(ngModel)]="evento.cupo_maximo" mask="000" [min]="1" (keypress)="validarNumeros($event)" placeholder="Cupo maximo">
+            <input matInput [(ngModel)]="evento.cupo_maximo" mask="000" minlength="1" maxlength="3" (keypress)="validarNumeros($event)" placeholder="Cupo maximo">
             <mat-error>Solo números (máx 3 dígitos)</mat-error>
         </mat-form-field>
         <div *ngIf="errors.cupo_maximo" class="invalid-feedback">{{ errors.cupo_maximo }}</div>
