@@ -1,0 +1,238 @@
+/* =========================================
+   1. Ajuste del Layout Principal (Sidebar)
+   ========================================= */
+// Usamos la clase que tienes en tu HTML: .main-content-graficas
+.main-content-graficas {
+  margin-left: 220px; /* Espacio para el sidebar en Desktop */
+  transition: margin-left 0.3s;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Fondo gris claro general para contrastar con la carta blanca */
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 991px) {
+  .main-content-graficas {
+    margin-left: 0; /* En móviles/tablets se quita el margen */
+  }
+}
+
+.wrapper {
+  height: auto;
+}
+
+/* =========================================
+   2. Títulos y Tipografía
+   ========================================= */
+.title-perfil {
+  font-family: 'Nexa-Bold', sans-serif; 
+  font-size: 28px;
+  color: #231F20;
+  display: block;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para la barra azul de título (Alert) */
+.alert-primary {
+  background-color: #e8f0fe; /* Azul muy suave */
+  color: #0d47a1;            /* Azul oscuro */
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  
+  .title-table {
+    font-family: 'Nexa-Bold', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0; /* Aseguramos que no tenga margin extra */
+  }
+}
+
+/* =========================================
+   3. Contenedor tipo "Carta" (Formulario)
+   ========================================= */
+.container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05); /* Sombra suave */
+  padding: 3rem; /* Espaciado interno generoso */
+  max-width: 900px; /* Ancho máximo para que no se estire demasiado */
+  width: 95%;
+  margin: 0 auto; /* Centrado horizontal */
+}
+
+/* =========================================
+   4. Estilos de Inputs (Material Design)
+   ========================================= */
+/* Hacemos que los inputs ocupen todo el ancho disponible */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-family: 'Nexa', sans-serif;
+}
+
+/* Ajuste específico para el Textarea */
+textarea {
+  min-height: 80px;
+}
+
+/* Manejo de errores */
+.invalid-feedback {
+  display: block;
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-family: 'Nexa', sans-serif;
+  padding-left: 10px;
+}
+
+/* =========================================
+   5. Sección de Fechas (Range)
+   ========================================= */
+/* Forzamos que se comporten como flexbox para ponerlos lado a lado */
+.range {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Espacio entre los dos datepickers */
+  width: 100%;
+}
+
+/* En pantallas pequeñas, que se pongan uno abajo del otro */
+@media (max-width: 768px) {
+  .range {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* =========================================
+   6. Checkboxes (Público Objetivo)
+   ========================================= */
+.select-materias {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.title-materias {
+  font-family: 'Nexa-Bold', sans-serif;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.checkbox-group {
+  margin-bottom: 10px;
+}
+
+/* Estilo del texto del checkbox */
+.d-checkbox-nombre {
+  font-family: 'Nexa', sans-serif;
+  font-size: 15px;
+  color: #333;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+/* =========================================
+   7. Botones
+   ========================================= */
+.section-buttons {
+  display: flex;
+  justify-content: flex-end; /* Alineados a la derecha */
+  gap: 15px;
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+
+  button {
+    min-width: 120px;
+    padding: 10px 20px;
+    font-family: 'Nexa-Bold', sans-serif;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-danger {
+    background-color: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    
+    &:hover {
+      background-color: #dc3545;
+      color: #fff;
+    }
+  }
+
+  .btn-primary {
+    background-color: #002e6e; /* Azul oscuro tipo BUAP */
+    border: none;
+    color: white;
+
+    &:hover {
+      background-color: #001a40;
+    }
+  }
+}
+
+/* =========================================
+   8. Sobreescritura de estilos de Material (Opcional)
+   ========================================= */
+/* Ayuda a que los inputs "Outline" se vean más limpios */
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   9. CORRECCIÓN VISUAL DEL CALENDARIO (IMPORTANTE)
+   ============================================================ */
+
+/* Fondo del contenedor popup (Overlay) */
+::ng-deep .mat-datepicker-content {
+  background-color: #ffffff !important;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.2) !important;
+  border-radius: 8px !important;
+  color: #333 !important;
+}
+
+/* Fondo del calendario interno */
+::ng-deep .mat-calendar {
+  background-color: #ffffff !important;
+  font-family: 'Nexa', sans-serif !important;
+}
+
+/* Color de los encabezados (L M M J V S D) */
+::ng-deep .mat-calendar-table-header th {
+  color: #555 !important;
+  font-weight: bold;
+}
+
+/* Color de los números de los días */
+::ng-deep .mat-calendar-body-cell-content {
+  color: #333 !important;
+}
+
+/* Día seleccionado (Circulo azul) */
+::ng-deep .mat-calendar-body-selected {
+  background-color: #002e6e !important; /* Usamos tu azul corporativo */
+  color: #fff !important;
+}
+
+/* Panel de Hora (Reloj) */
+::ng-deep .ngx-mat-timepicker {
+  background-color: #fff !important;
+  border-top: 1px solid #eee;
+}
+
+/* Textos e iconos del reloj */
+::ng-deep .ngx-mat-timepicker-spacer, 
+::ng-deep .mat-icon-button {
+  color: #333 !important;
+}

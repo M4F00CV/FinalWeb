@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="icon-close">
+      <button class="btn" (click)="cerrar_modal()">
+          <i class="bi bi-x-lg"></i>
+      </button>
+  </div>
+  <div class="body-modal">
+      <h1 class="title-modal">{{ titulo }}</h1>
+      <span class="descripcion">{{ descripcion }}</span>
+      <div class="buttons-modal">
+          <button mat-button class="btn-regresar" (click)="cerrar_modal()">Cancelar</button>
+          <button mat-button [ngClass]="accion === 'editar' ? 'btn-azul' : 'btn-eliminar'" 
+            (click)="accionModal()">{{ textoBoton }}
+          </button>
+      </div>
+  </div>
+</div>
