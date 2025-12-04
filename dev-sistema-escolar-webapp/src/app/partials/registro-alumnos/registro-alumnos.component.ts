@@ -47,6 +47,9 @@ export class RegistroAlumnosComponent implements OnInit {
       // Asignamos rompiendo referencia
       this.alumno = { ...this.datos_user };
       console.log("Datos cargados en formulario: ", this.alumno);
+      if(this.alumno.fecha_nacimiento){
+        this.alumno.fecha_nacimiento = new Date(this.alumno.fecha_nacimiento + 'T00:00:00');
+      }
     }
   }
 
@@ -76,9 +79,12 @@ export class RegistroAlumnosComponent implements OnInit {
           }
         },
         (error) => {
-          // Manejar errores de la API
-          alert("Error al registrar alumno");
-          console.error("Error al registrar alumno: ", error);
+          if(error.error && error.error.message && error.error.message.includes("taken")){
+             this.errors.email = "Este correo electrónico ya está registrado.";
+             alert("Error: El correo ya está registrado.");
+          } else {
+             alert("Error al registrar alumno. Verifica los datos.");
+          }
         }
       );
     }else{
